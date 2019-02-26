@@ -11,6 +11,22 @@ or
 maximum, the range (maximum – minimum), the mode (value that is repeated more often), the mean
 (average), and the standard deviation of a set of numbers. These numbers, that will be stored in an
 array, represent salaries in the $30K – $60K range and are to be generated randomly.
+This is the definition of standard deviation,
+
+sqrt[ (sigma(x-x̄)^2)/n ]  //sum from i=1 to n
+
+where x̄ denotes the average, and n is the total number of elements in the array.
+The program will present the user a menu with these choices:
+- Populate Array
+- Display Array
+- Minimum
+- Maximum
+- Range
+- Mode
+- Mean
+- Standard Deviation
+- Exit
+and will let the user run them until “Exit” is entered.
 */
 
 public class project{
