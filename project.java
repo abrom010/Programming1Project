@@ -1,6 +1,6 @@
 /**
 Team Leader: Aaron Brombergues, 6131735, U01
-Student:
+Student: Justin Lee, 5445086, U01
 Student:
 
 6 - Write a program that simulates a statistics tool, by letting the user determine the minimum, the
