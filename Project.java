@@ -28,19 +28,19 @@ and will let the user run them until “Exit” is entered.
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class project{
+public class Project{
     
     //Displays menu
     static void displayMenu(){
-        System.out.println("This is a statistics tool for salaries. Here are your choices:");
+        System.out.println("Here are your choices:");
             
-        System.out.println("- Populate Array\n" + "- Display Array\n" +
-                "- Minimum\n" + "- Maximum\n" + "- Range\n" + "- Mode\n" + "- Mean\n" +
-                "- Standard Deviation\n" + "- Exit\n");
+        System.out.println("1 - Populate Array\n" + "2 - Display Array\n" +
+                "3 - Minimum\n" + "4 - Maximum\n" + "5 - Range\n" + "6 - Mode\n" + "7 - Mean\n" +
+                "8 - Standard Deviation\n" + "9 - Exit\n");
             
-        System.out.println("Please type in a choice (spelled correctly) then hit enter.");
+        System.out.println("Please type in a number, then hit enter.");
         
-        System.out.println("To show this menu again, type in \"Menu\".\n");
+        System.out.println("To show this menu again, type in 0.\n");
     }
     
     //Creates a randomized salary array (30k-60k)
@@ -77,6 +77,7 @@ public class project{
     static float getMode(float[] salaryArray){
         float mode = 0;
         int maxCount = 0;
+        
         for (int i=0;i<salaryArray.length;i++){
             float value = salaryArray[i];
             int count = 0;
@@ -88,6 +89,7 @@ public class project{
                 if(count==1){
                     mode = 0;
         }}}}
+        
         return mode;
     }
     
@@ -114,12 +116,12 @@ public class project{
     //Main method
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
-        Scanner input = new Scanner(System.in);
         boolean exit = false;
         boolean populated = false;
         
         //Getting an array length from user
-        System.out.println("An array must be initialized. How many salaries would you like to compare?");
+        System.out.println("This program simulates a statistics tool that can be used to compare a number of salaries.");
+        System.out.println("How many salaries will be generated?");
         int arrayLength = in.nextInt();
         float[] salaryArray = new float[arrayLength];
         
@@ -128,58 +130,63 @@ public class project{
         //Main loop
         while(!exit){
             System.out.print(": ");
-            String choice = input.nextLine();
+            int choice = in.nextInt();
             
-            switch(choice.toUpperCase()){
-                case "POPULATE ARRAY":
+            switch(choice){
+                case 1:
                     salaryArray = createRandomSalary(arrayLength);
                     populated = true;
                     break;
                     
-                case "DISPLAY ARRAY":
-                    if(populated)
-                    {
-                        System.out.println(Arrays.toString(salaryArray));
-                        break;
-                    }
-                    else
-                    {
-                        System.out.println("Please populate the array first.");
-                        break;
-                    }
+                case 2:
+                    System.out.println(Arrays.toString(salaryArray));
+                    break;
                     
-                case "MINIMUM":
+                case 3:
                     System.out.println("Minimum is: "+getMinimum(salaryArray));
                     break;
                     
-                case "MAXIMUM":
-                    System.out.println("Maximum is: "+getMaximum(salaryArray));
-                    break;
+                case 4:
+                	if(populated) {
+                		System.out.println("Maximum is: "+getMaximum(salaryArray));
+                	}else {
+                		System.out.println("Maximum is: 0.0");
+                	}
+                	break;
                     
-                case "RANGE":
-                    System.out.println("Range is: "+(getMaximum(salaryArray)-getMinimum(salaryArray)));
-                    break;
+                case 5:
+                	if(populated) {
+                		System.out.println("Range is: "+(getMaximum(salaryArray)-getMinimum(salaryArray)));
+                	}else {
+                		System.out.println("Range is: 0.0");
+                	}break;
                     
-                case "MODE":
-                    if(getMode(salaryArray)!=0){
-                    System.out.println("Mode is: "+getMode(salaryArray));
-                    }
-                    else System.out.println("No mode.");
-                    break;
+                case 6:
+                	if(populated) {
+	                    if(getMode(salaryArray)!=0){
+	                    System.out.println("Mode is: "+getMode(salaryArray));
+	                    }
+	                    else {
+	                    	System.out.println("No mode.");
+	                    }
+                	}else {
+                		System.out.println("Mode is: 0.0");
+                	}break;
                     
-                case "MEAN":
+                case 7:
                     System.out.println("Mean is: "+getAverage(salaryArray));
                     break;
                     
-                case "STANDARD DEVIATION":
+                case 8:
                     System.out.println("Standard deviation is: "+getStandardDeviation(salaryArray));
                     break;
                 
-                case "MENU": displayMenu(); break;
-                case "EXIT": exit=true; break;
+                case 9: exit=true; break;
+                case 0: displayMenu(); break;
                 default: System.out.println("Please give valid input");
             }
         }
-  }
+        in.close();
+    }
 }
 
