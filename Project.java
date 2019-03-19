@@ -1,7 +1,7 @@
 /**
 Team Leader: Aaron Brombergues, 6131735, U01
 Student: Justin Lee, 5445086, U01
-Student:
+Student: Natali Gutierrez, 6109509, U01
 
 6 - Write a program that simulates a statistics tool, by letting the user determine the minimum, the
 maximum, the range (maximum – minimum), the mode (value that is repeated more often), the mean
